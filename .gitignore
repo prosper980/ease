@@ -1,0 +1,55 @@
+# Logs
+#frontend
+/frontend/logs
+/frontend/*.log
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/pnpm-debug.log*
+/frontend/lerna-debug.log*
+/frontend/.yarn/*
+
+/frontend/node_modules
+/frontend/dist
+/frontend/dist-ssr
+/frontend/*.local
+
+# Editor directories and files
+/frontend/.vscode/*
+/frontend/!.vscode/extensions.json
+/frontend/.idea
+/frontend/.DS_Store
+/frontend/.*.suo
+/frontend/*.ntvs*
+/frontend/*.njsproj
+/frontend/*.sln
+/frontend/*.sw?
+
+
+
+
+#backend
+/backend/logs
+/backend/*.log
+/backend/npm-debug.log*
+/backend/yarn-debug.log*
+/backend/yarn-error.log*
+/backend/pnpm-debug.log*
+/backend/lerna-debug.log*
+/backend/node_modules
+/backend/dist
+
+/backend/.yarn/*
+/backend/!.yarn/patches
+/backend/!.yarn/plugins
+/backend/!.yarn/releases
+/backend/!.yarn/sdks
+/backend/!.yarn/versions
+/backend/.env
+
+# Swap the comments on the following lines if you wish to use zero-installs
+# In that case, don't forget to run `yarn config set enableGlobalCache false`!
+# Documentation here: https://yarnpkg.com/features/caching#zero-installs
+
+#!.yarn/cache
+/backend/.pnp.*
