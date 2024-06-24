@@ -1,6 +1,7 @@
 import { Form, useActionData } from "react-router-dom";
 import { useRef } from "react";
 import { useState } from "react";
+import GoogleSignUp from './GoogleSignUp';
 
 const SignUpForm = () => {
 
@@ -34,8 +35,8 @@ const SignUpForm = () => {
 
                         <div className=" p-4">
                             <div className=" space-y-1">
-                                <h2 className="text-black font-semibold text-2xl font-plus-font">Welcome to the shop</h2>
-                                <h3 className=" text-slate-600 font-plus-font">Sign up for an account</h3>
+                                <h2 className="text-black font-semibold text-2xl font-plus-font mb-1">Welcome to Easy</h2>
+                                <h3 className=" text-slate-600 font-plus-font mb-1">Sign up for an account</h3>
                             </div>
 
                             <Form className="space-y-4" method="post">
@@ -83,8 +84,19 @@ const SignUpForm = () => {
 
                                 {(typeof errors === 'string') && <span className="text-xs text-red-500">{errors}</span>}
                                 {<span className="text-xs text-red-500">{passworMisMatchMessage}</span>}
+                                
+                                <div className=" flex justify-between space-x-1">
+                                    <div className="flex-1">
+                                        <button className="w-full bg-slate-900 text-white text-center p-2 hover:bg-slate-800 font-plus-font" type="submit"> Submit </button>
+                                    </div>
+
+                                    <div>
+                                        <GoogleSignUp />
+                                    </div>
+                                </div>
+
+
                                 <div>
-                                    <button className="w-full bg-slate-900 text-white text-center p-2 hover:bg-slate-800 font-plus-font" type="submit"> Submit </button>
                                 </div>
 
                             </Form>
