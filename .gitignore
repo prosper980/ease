@@ -25,6 +25,7 @@
 /frontend/*.sln
 /frontend/*.sw?
 /frontend/secrets.ts
+/frontend/.env
 
 
 
