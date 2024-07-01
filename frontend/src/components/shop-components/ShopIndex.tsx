@@ -1,14 +1,19 @@
-import HeaderMain from "./header-components/header-main";
+import { FilterMain } from "./filter-components/FilterMain";
+import {HeaderMain} from "./header-components/HeaderMain";
 
 
 const ShopHome = () => {
 
     return (
-        <div className=" mt-5 mx-4 bg-lime-50">
+        <div className="mt-5  mx-44">
 
             <header>
                 <HeaderMain />
             </header>
+
+            <div className="mt-16">
+                <FilterMain />
+            </div>
             
         </div>
     )
