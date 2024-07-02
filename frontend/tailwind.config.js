@@ -1,15 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily : {
-        "plus-font" : ['Plus Jakarta Sans', 'sans-serif']
-      }
+      fontFamily: {
+        "plus-font": ["Plus Jakarta Sans", "sans-serif"],
+        "alt-font": ["Bona Nova SC", "serif"],
+      },
     },
   },
-  plugins: [],
-}
+  plugins: [import("@tailwindcss/forms")],
+};
