@@ -11,7 +11,7 @@ export const HeaderMain = () => {
             </div>
 
             <div> 
-                <h1 className="text-5xl font-plus-font font-bold"> Ease </h1>
+                <h1 className="text-5xl font-plus-font font-bold text-slate-700"> Ease </h1>
             </div>
 
             <div>

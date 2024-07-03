@@ -1,4 +1,6 @@
 import { SignedIn, UserButton } from "@clerk/clerk-react";
+import ProductSearch from "./ProductSearch";
+import Cart from "./HeaderUserCart";
 
 
 const HeaderUserActions = () => {
@@ -6,7 +8,7 @@ const HeaderUserActions = () => {
     return(
         <div className=" flex justify-between items-center space-x-3">
             <div>
-                <h2>search icon here</h2>
+                <ProductSearch />
             </div>
 
             <div>
@@ -16,7 +18,7 @@ const HeaderUserActions = () => {
             </div>
 
             <div>
-                <h2>user cart</h2>
+                <Cart />
             </div>
         </div>
     )
