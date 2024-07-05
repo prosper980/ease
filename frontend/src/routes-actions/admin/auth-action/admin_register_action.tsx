@@ -1,5 +1,5 @@
 import { ActionFunction } from "react-router";
-
+import  axios  from "axios"
 
 export const adminRegisterAction : ActionFunction = async ({ request }) => {
 
@@ -15,8 +15,15 @@ export const adminRegisterAction : ActionFunction = async ({ request }) => {
         return "Passwords do not match";
     }
 
-    
-    console.log(adminUserName, adminPassword, adminPasswordConfirm);
-    
+    try {
+        // const JsonFormData = JSON.stringify(formData);
+        const axiosRes = await axios.post("http://localhost:3000/admin/register", formData);
+
+        console.log(axiosRes)
+    } catch (error) {
+        console.error(error);
+    }
+
+
     return null;
 }
