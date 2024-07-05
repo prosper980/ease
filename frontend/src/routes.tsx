@@ -4,6 +4,7 @@ import RootLayout from "./root-layout";
 import ShopHome from "./components/shop-components/ShopIndex";
 import AdminAuth from "./components/admin/auth/SignIn";
 import AdminRegister from "./components/admin/auth/Register";
+import { adminRegisterAction } from './routes-actions/admin/auth-action/admin_register_action';
 
 
 export const routes = createBrowserRouter([
@@ -24,7 +25,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path : "/admin/register",
-                element : <AdminRegister />
+                element : <AdminRegister />,
+                action : adminRegisterAction
             }
         ]
     }

@@ -1,21 +1,19 @@
-import express, { Application,Request, Response } from "express"
+import express, { Application, Request, Response } from "express"
 import 'dotenv/config'
+import cors from "cors"
+import bodyParser from "body-parser";
+import { adminRoutes } from "./routes/admin_routes/admin_routes";
 
 
-const app : Application = express();
+const app: Application = express();
+
+app.use(cors());
+app.use(bodyParser.json())
 
 const PORT = process.env.POR || 3000;
 
 
-app.get('/', (req : Request, res : Response) => {
-    res.json({username : "John doe"});
-    console.log(req.url);
-
-})
-app.get('/user', (req : Request, res : Response) => {
-    console.log(req.url);
-    res.send("Hello");
-})
+app.use("/admin", adminRoutes)
 
 
 app.listen(PORT, () => {
