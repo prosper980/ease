@@ -16,14 +16,23 @@ export const adminRegisterAction : ActionFunction = async ({ request }) => {
     }
 
     try {
-        // const JsonFormData = JSON.stringify(formData);
-        const axiosRes = await axios.post("http://localhost:3000/admin/register", formData);
 
-        console.log(axiosRes)
+        const axiosRes = await axios({
+            method : "post",
+            data : formData,
+            withCredentials : true,
+            url : "/admin/register",
+            baseURL : "http://localhost:3000"
+        });
+
+        console.log(axiosRes);
+    
+        return null;
     } catch (error) {
         console.error(error);
+        return null;
     }
 
 
-    return null;
+    
 }

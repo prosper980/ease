@@ -31,6 +31,7 @@
 
 
 #backend
+/backend/.vscode
 /backend/logs
 /backend/*.log
 /backend/npm-debug.log*
