@@ -6,7 +6,7 @@ const adminRegisterController = (req: Request, res: Response) => {
         const { adminUserName, adminPassword, adminPasswordConfirm } = req.body
 
         if (!adminUserName || !adminPassword || !adminPasswordConfirm) {
-            res.status(204).send({ error: "No body data in request", success: false });
+            res.status(400).send({ error: "No body data in request", success: false });
             return;
         }
 
@@ -17,12 +17,13 @@ const adminRegisterController = (req: Request, res: Response) => {
 
         //check if username exist here
         console.log(req.body);
+        res.status(200).send({ error: "", success: true, data: {} });
+        return;
     } catch (error) {
 
         console.log(error)
         res.status(500).send({ error: "No data in request", success: false });
         return;
-
     }
 }
 

@@ -25,7 +25,7 @@ RUN yarn install
 
 RUN yarn build
 # Expose the port that the application listens on.
-EXPOSE 3000
+EXPOSE 8080
 
 USER node
 # Run the application.
