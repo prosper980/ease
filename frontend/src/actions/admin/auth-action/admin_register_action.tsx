@@ -30,7 +30,7 @@ export const adminRegisterAction : ActionFunction = async ({ request }) => {
             
         }
 
-        return redirect(`/admin/page/${axiosRes.data?.data.adminId}`);
+        return redirect(`/admin/home/${axiosRes.data?.data.adminId}`);
     
     } catch (error) {
 
@@ -40,6 +40,4 @@ export const adminRegisterAction : ActionFunction = async ({ request }) => {
         return null;
     }
 
-
-    
 }

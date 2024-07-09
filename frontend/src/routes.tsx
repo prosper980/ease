@@ -4,7 +4,9 @@ import RootLayout from "./root-layout";
 import ShopHome from "./components/shop-components/ShopIndex";
 import AdminAuth from "./components/admin/auth/SignIn";
 import AdminRegister from "./components/admin/auth/Register";
-import { adminRegisterAction } from './routes-actions/admin/auth-action/admin_register_action';
+import { adminRegisterAction } from './actions/admin/auth-action/admin_register_action';
+import { signInAction } from "./actions/admin/auth-action/sigin_action";
+import DashboardHome from "./components/admin/dashboard/home";
 
 
 export const routes = createBrowserRouter([
@@ -21,7 +23,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path : "/admin",
-                element : <AdminAuth />
+                element : <AdminAuth />,
+                action : signInAction
             },
             {
                 path : "/admin/register",
@@ -29,8 +32,8 @@ export const routes = createBrowserRouter([
                 action : adminRegisterAction
             },
             {
-                path : "/admin/page/:adminId",
-                element : <h2> admin home with Id </h2>
+                path : "/admin/home/:adminId",
+                element : <DashboardHome />
             }
         ]
     }

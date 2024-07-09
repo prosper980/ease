@@ -18,6 +18,7 @@ COPY package.json .
 RUN yarn install
 
 
+
 # Copy the production dependencies from the deps stage and also
 # the built application from the build stage into the image.
 # COPY --from=deps /usr/src/app/node_modules ./node_modules
@@ -25,7 +26,7 @@ RUN yarn install
 
 RUN yarn build
 # Expose the port that the application listens on.
-EXPOSE 8080
+EXPOSE 3000
 
 USER node
 # Run the application.
