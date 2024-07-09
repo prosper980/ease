@@ -27,6 +27,10 @@ export const routes = createBrowserRouter([
                 path : "/admin/register",
                 element : <AdminRegister />,
                 action : adminRegisterAction
+            },
+            {
+                path : "/admin/page/:adminId",
+                element : <h2> admin home with Id </h2>
             }
         ]
     }

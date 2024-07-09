@@ -1,17 +1,17 @@
-import { ActionFunction } from "react-router";
-import  axios  from "axios"
+import { ActionFunction, redirect } from "react-router";
+import  axios, { AxiosError }  from "axios"
 
 export const adminRegisterAction : ActionFunction = async ({ request }) => {
 
     const formData = Object.fromEntries(await request.formData());
 
-    const { adminUserName, adminPassword, adminPasswordConfirm } = formData;
+    const { username, password, passwordConfirm } = formData;
     
-    if(!adminUserName || !adminPassword || !adminPasswordConfirm){
+    if(!username || !password || !passwordConfirm){
         return "Error: All Fields are required";
     }
 
-    if(adminPassword !== adminPasswordConfirm){
+    if(password !== passwordConfirm){
         return "Passwords do not match";
     }
 
@@ -24,12 +24,19 @@ export const adminRegisterAction : ActionFunction = async ({ request }) => {
             url : "/admin/register",
             baseURL : "http://localhost:3000"
         });
+        
+        if(axiosRes.status !== 201){
+            return axiosRes.data?.data.message;
+            
+        }
 
-        console.log(axiosRes);
+        return redirect(`/admin/page/${axiosRes.data?.data.adminId}`);
     
-        return null;
     } catch (error) {
-        console.error(error);
+
+        if(error instanceof AxiosError){
+            return (error?.response?.data?.error)
+        }
         return null;
     }
 
