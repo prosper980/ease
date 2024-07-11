@@ -6,7 +6,7 @@ import AdminAuth from "./components/admin/auth/SignIn";
 import AdminRegister from "./components/admin/auth/Register";
 import { adminRegisterAction } from './actions/admin/auth-action/admin_register_action';
 import { signInAction } from "./actions/admin/auth-action/sigin_action";
-import DashboardHome from "./components/admin/dashboard/home";
+import DashboardHome from "./components/admin/dashboard/MainDashBoard";
 
 
 export const routes = createBrowserRouter([

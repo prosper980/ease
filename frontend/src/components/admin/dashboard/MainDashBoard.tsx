@@ -1,5 +1,6 @@
 import { Outlet } from "react-router"
-import { MainNav } from "./nav/MainNav"
+import { MainNav } from "./nav/nav-links/MainNav"
+import SearchAndDate from "./search_and_date/SearchAndDate"
 
 
 const DashboardHome = () => {
@@ -8,11 +9,11 @@ const DashboardHome = () => {
         <div>
             <div> <MainNav /> </div>
 
-            <div> search bar </div>
+            <div> <SearchAndDate />  </div>
 
-            <div>
+            <main>
                  <Outlet/>
-             </div>
+             </main>
         </div>
 
     
