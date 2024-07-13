@@ -7,6 +7,7 @@ import AdminRegister from "./components/admin/auth/Register";
 import { adminRegisterAction } from './actions/admin/auth-action/admin_register_action';
 import { signInAction } from "./actions/admin/auth-action/sigin_action";
 import DashboardHome from "./components/admin/dashboard/MainDashBoard";
+import { adminHomeLoaderFunction } from './loaders/admin/admin_home_loader';
 
 
 export const routes = createBrowserRouter([
@@ -33,7 +34,8 @@ export const routes = createBrowserRouter([
             },
             {
                 path : "/admin/home/:adminId",
-                element : <DashboardHome />
+                element : <DashboardHome />,
+                loader : adminHomeLoaderFunction
             }
         ]
     }

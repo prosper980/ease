@@ -523,6 +523,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@heroicons/react@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@heroicons/react@npm:2.1.5"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 10c0/d0ca2d017545da103ed8e90e9e6679d46329c1b09bb4c06ff509b0fe7cfbba7034409ea24b0469fabd2a0a9b144e8e717f58de924615e0b0a1bed7b51fcc5940
+  languageName: node
+  linkType: hard
+
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -1946,6 +1955,7 @@ __metadata:
   resolution: "frontend@workspace:."
   dependencies:
     "@clerk/clerk-react": "npm:^5.2.5"
+    "@heroicons/react": "npm:^2.1.5"
     "@tailwindcss/forms": "npm:^0.5.7"
     "@types/axios": "npm:^0.14.0"
     "@types/react": "npm:^18.2.66"
