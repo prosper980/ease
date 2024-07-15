@@ -1,5 +1,6 @@
 import { ActionFunction,redirect } from "react-router";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import { baseUrl } from "../../global";
 
 
 export const signInAction : ActionFunction = async ({request}) => {
@@ -18,18 +19,19 @@ export const signInAction : ActionFunction = async ({request}) => {
             data : formData,
             withCredentials : true,
             url : "/admin/signin",
-            baseURL : "http://localhost:3000"
+            baseURL : `${baseUrl}`
         });
 
         if(axiosReq.status !== 200){
-            return axiosReq.data?.data.message;
-            
+            return axiosReq.data?.message;            
         }
-
+        
         return redirect(`/admin/home/${axiosReq.data?.data.adminId}`);
-
     } catch (error) {
-        console.log(error);
+    
+        if(error instanceof AxiosError){
+            return error.response?.data?.message;
+        }
         return null;
     }
 

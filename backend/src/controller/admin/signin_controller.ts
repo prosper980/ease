@@ -4,6 +4,7 @@ import { jwtTokenGen } from "../../services/jwt_token_gen";
 import ms from "ms";
 import { getPassword } from "../../services/db/admin/get_password";
 import { passwordDecode } from '../../services/password_decode';
+import { cookieName } from "../../global";
 
 
 
@@ -22,14 +23,14 @@ const signInController = async (req: Request, res: Response) => {
         const hashedPassword = await getPassword(username);
 
         if (!hashedPassword) {
-            res.status(401).send({ message: "Invalid username", success: false });
+            res.status(401).send({ message: "Invalid username or password", success: false });
             return;
         }
 
         const passwordDecoded = await passwordDecode(password, hashedPassword);
 
         if (!passwordDecoded) {
-            res.status(401).send({ message: "Invalid Password", success: false });
+            res.status(401).send({ message: "Invalid username or password", success: false });
             return;
         }
 
@@ -39,7 +40,7 @@ const signInController = async (req: Request, res: Response) => {
             /* generate cookie token */
             const cookieToken = jwtTokenGen(username);
 
-            res.cookie("admin-cookie", cookieToken, { maxAge: ms("1d"), httpOnly: true })
+            res.cookie(cookieName, cookieToken, { maxAge: ms("1d"), httpOnly: true })
 
             if (!cookieToken) {
                 res.status(500).send({ message: "Sever error", success: false, data: {} });

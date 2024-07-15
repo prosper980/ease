@@ -4,10 +4,11 @@ import RootLayout from "./root-layout";
 import ShopHome from "./components/shop-components/ShopIndex";
 import AdminAuth from "./components/admin/auth/SignIn";
 import AdminRegister from "./components/admin/auth/Register";
-import { adminRegisterAction } from './actions/admin/auth-action/admin_register_action';
-import { signInAction } from "./actions/admin/auth-action/sigin_action";
+import { adminRegisterAction } from './actions/admin/admin_register_action';
+import { signInAction } from "./actions/admin/sigin_action";
 import DashboardHome from "./components/admin/dashboard/MainDashBoard";
 import { adminHomeLoaderFunction } from './loaders/admin/admin_home_loader';
+import { adminAction } from "./actions/admin/dashboard_action";
 
 
 export const routes = createBrowserRouter([
@@ -25,7 +26,7 @@ export const routes = createBrowserRouter([
             {
                 path : "/admin",
                 element : <AdminAuth />,
-                action : signInAction
+                action : signInAction,
             },
             {
                 path : "/admin/register",
@@ -35,7 +36,8 @@ export const routes = createBrowserRouter([
             {
                 path : "/admin/home/:adminId",
                 element : <DashboardHome />,
-                loader : adminHomeLoaderFunction
+                loader : adminHomeLoaderFunction,
+                action : adminAction
             }
         ]
     }

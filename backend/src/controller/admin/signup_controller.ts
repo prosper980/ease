@@ -5,6 +5,7 @@ import { passwordHash } from "../../services/password_hash";
 import { jwtTokenGen } from "../../services/jwt_token_gen";
 import ms from "ms"
 import { getAdminByUsername } from "../../services/db/admin/get_admin_by_username";
+import { cookieName } from "../../global";
 
 const adminRegisterController = async (req: Request, res: Response) => {
 
@@ -40,7 +41,7 @@ const adminRegisterController = async (req: Request, res: Response) => {
                 /* generate cookie token */
                 const cookieToken = jwtTokenGen(username);
 
-                res.cookie("admin-cookie", cookieToken, { maxAge: ms("1d"), httpOnly: true })
+                res.cookie(cookieName, cookieToken, { maxAge: ms("1d"), httpOnly: true })
 
                 if (!cookieToken) {
                     res.status(500).send({ message: "Sever error", success: false, data: {} });
