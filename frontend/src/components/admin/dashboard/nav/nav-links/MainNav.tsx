@@ -5,10 +5,10 @@ import NavLinks from "./NavLinks"
 export const MainNav = () => {
 
     return (
-        <nav className="flex items-center justify-between px-5 bg-gray-900 py-4 ">
+        <nav className="flex items-center justify-between px-5 bg-black py-4 border-b border-b-slate-300">
             
             <div>
-                <h2 className="text-slate-200 font-bold font-plus-font" > Ease Dashboard </h2>
+                <h2 className="text-slate-200 font-bold text-2xl font-plus-font" > Ease Dashboard </h2>
             </div>
 
             <div>

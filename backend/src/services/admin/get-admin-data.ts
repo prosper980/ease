@@ -2,6 +2,12 @@ import { PrismaClient } from "@prisma/client"
 
 
 
+/**
+ * Get user data from db;
+ * @param {string} adminUserName 
+ * @returns {Promise}
+ */
+
 export const getAdminData = async (adminUserName: string): Promise<object | null> => {
 
     try {

@@ -1,6 +1,13 @@
 import { ActionFunction, redirect } from "react-router";
 import  axios, { AxiosError }  from "axios"
+import { baseUrl } from "../../global";
 
+
+/**
+ * 
+ * @param param0 react-router request object
+ * @returns redirect to dashboard || null
+ */
 export const adminRegisterAction : ActionFunction = async ({ request }) => {
 
     const formData = Object.fromEntries(await request.formData());
@@ -22,15 +29,15 @@ export const adminRegisterAction : ActionFunction = async ({ request }) => {
             data : formData,
             withCredentials : true,
             url : "/admin/register",
-            baseURL : "http://localhost:3000"
+            baseURL : `${baseUrl}`
         });
         
         if(axiosRes.status !== 201){
-            return axiosRes.data?.data.message;
-            
+            console.log(axiosRes.data?.message);
+            return axiosRes.data?.message;            
         }
 
-        return redirect(`/admin/home/${axiosRes.data?.data.adminId}`);
+        return redirect(`/admin/${axiosRes.data?.userData.adminUsername}/dashboard`);
     
     } catch (error) {
 

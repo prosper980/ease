@@ -4,11 +4,11 @@ import RootLayout from "./root-layout";
 import ShopHome from "./components/shop-components/ShopIndex";
 import AdminAuth from "./components/admin/auth/SignIn";
 import AdminRegister from "./components/admin/auth/Register";
-import { adminRegisterAction } from './actions/admin/admin_register_action';
+import { adminRegisterAction } from './actions/admin/admin-register-action';
 import { signInAction } from "./actions/admin/sigin_action";
 import DashboardHome from "./components/admin/dashboard/MainDashBoard";
-import { adminHomeLoaderFunction } from './loaders/admin/admin_home_loader';
-import { adminAction } from "./actions/admin/dashboard_action";
+import { adminHomeLoaderFunction } from './loaders/admin/admin-home-loader';
+import { adminAction } from "./actions/admin/dashboard-action";
 
 
 export const routes = createBrowserRouter([
@@ -34,10 +34,30 @@ export const routes = createBrowserRouter([
                 action : adminRegisterAction
             },
             {
-                path : "/admin/home/:adminId",
+                path : "/admin/:adminId/",
                 element : <DashboardHome />,
                 loader : adminHomeLoaderFunction,
-                action : adminAction
+                action : adminAction,
+
+                children : [
+                    {
+                        path : "/admin/:adminId/dashboard",
+                        element : <h2> Dashboard </h2>
+                    },
+                    {
+                        path : "/admin/:adminId/addItems",
+                        element : <h2> Add items </h2>
+                    },
+                    {
+                        path : "/admin/:adminId/inventory",
+                        element : <h2> Inventory </h2>
+                    },
+                    {
+                        path : "/admin/:adminId/tasks",
+                        element : <h2> Tasks </h2>
+                    }
+                    
+                ]
             }
         ]
     }

@@ -1,6 +1,6 @@
 import { Outlet } from "react-router"
 import { MainNav } from "./nav/nav-links/MainNav"
-import SearchAndDate from "./search_and_date/SearchAndDate"
+import SearchAndDate from "./search-and-date/SearchAndDate"
 
 
 const DashboardHome = () => {

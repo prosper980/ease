@@ -2,7 +2,7 @@ import express, { Application } from "express"
 import 'dotenv/config'
 import cors from "cors"
 import bodyParser from "body-parser";
-import { adminRoutes } from "./routes/admin_routes/admin_routes";
+import { adminRoutes } from "./routes/admin_routes/admin-routes";
 import cookieParser from "cookie-parser";
 
 

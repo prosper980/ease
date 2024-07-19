@@ -1,7 +1,7 @@
 import exp from "constants";
 import { Request, Response } from "express"
 import { cookieName } from "../../global";
-import coookieVerify from "../../services/admin/cookie_verify";
+import coookieVerify from "../../services/admin/cookie-verify";
 
 
 
@@ -17,7 +17,7 @@ const adminHomeController = async (req: Request, res: Response) => {
             return;
         }
 
-        const cookieAuthenticity = coookieVerify(cookie);
+        const cookieAuthenticity = coookieVerify(cookie, false);
 
         if (!cookieAuthenticity) {
             res.status(401).send({ success: false, message: "session time out" });

@@ -1,11 +1,19 @@
 import { Response, Request } from "express";
-import { checkAdminUsernameExist } from "../../services/db/admin/check_admin_exist";
-import { addNewAdmin } from "../../services/db/admin/add_new_admin";
-import { passwordHash } from "../../services/password_hash";
-import { jwtTokenGen } from "../../services/jwt_token_gen";
+import { checkAdminUsernameExist } from "../../services/db/admin/check-admin-exist";
+import { addNewAdmin } from "../../services/db/admin/add-new-admin";
+import { passwordHash } from "../../services/password-hash";
+import { jwtTokenGen } from "../../services/jwt-token-gen";
 import ms from "ms"
-import { getAdminByUsername } from "../../services/db/admin/get_admin_by_username";
+import { getAdminByUsername } from "../../services/db/admin/get-admin-by-username";
 import { cookieName } from "../../global";
+
+
+/**
+ * Resgisters admins
+ * @param {object} req 
+ * @param {object} res 
+ * @returns {Promise}
+ */
 
 const adminRegisterController = async (req: Request, res: Response) => {
 
@@ -65,8 +73,6 @@ const adminRegisterController = async (req: Request, res: Response) => {
 
                 res.status(500).send({ message: "Sever error", success: false, data: {} });
                 return;
-
-
             }
 
         } else {

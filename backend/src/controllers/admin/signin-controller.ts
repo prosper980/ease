@@ -1,17 +1,23 @@
 import { Request, Response } from "express"
-import { getAdminByUsername } from "../../services/db/admin/get_admin_by_username";
-import { jwtTokenGen } from "../../services/jwt_token_gen";
+import { getAdminByUsername } from "../../services/db/admin/get-admin-by-username";
+import { jwtTokenGen } from "../../services/jwt-token-gen";
 import ms from "ms";
-import { getPassword } from "../../services/db/admin/get_password";
-import { passwordDecode } from '../../services/password_decode';
+import { getPassword } from "../../services/db/admin/get-password";
+import { passwordDecode } from '../../services/password-decode';
 import { cookieName } from "../../global";
 
 
 
+/**
+ * 
+ * @param req 
+ * @param res 
+ * @returns admin credentials => admin username and Id
+ */
+
 const signInController = async (req: Request, res: Response) => {
 
     try {
-
 
         const { username, password } = req.body;
 
@@ -49,9 +55,9 @@ const signInController = async (req: Request, res: Response) => {
 
             res.status(200).send(
                 {
-                    message: "signin", success: true, data:
+                    message: "signin", success: true, userData:
                     {
-                        username: username, adminId: adminIdByUsername
+                        adminUsername: username, adminId: adminIdByUsername
                     }
                 });
             return;

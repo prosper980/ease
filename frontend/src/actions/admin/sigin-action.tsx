@@ -3,6 +3,12 @@ import axios, { AxiosError } from "axios";
 import { baseUrl } from "../../global";
 
 
+
+/**
+ * Sign in Form Action
+ * @param param0 
+ * @returns {Promise}
+ */
 export const signInAction : ActionFunction = async ({request}) => {
 
     try {
@@ -14,6 +20,10 @@ export const signInAction : ActionFunction = async ({request}) => {
             return "Error: All Fields are required";
         }
 
+
+        /**
+         * post form-data to endpoint  
+         */
         const axiosReq = await axios({
             method : "post",
             data : formData,
@@ -22,11 +32,17 @@ export const signInAction : ActionFunction = async ({request}) => {
             baseURL : `${baseUrl}`
         });
 
+
         if(axiosReq.status !== 200){
-            return axiosReq.data?.message;            
+            return axiosReq.data?.message;        
         }
-        
-        return redirect(`/admin/home/${axiosReq.data?.data.adminId}`);
+                
+        //store username in localstorage
+        localStorage.setItem("uname", JSON.stringify(axiosReq.data?.userData.adminUsername));
+
+        //redirect to dashboard with admin id => username
+        return redirect(`/admin/${axiosReq.data?.userData.adminUsername}/dashboard`);
+
     } catch (error) {
     
         if(error instanceof AxiosError){

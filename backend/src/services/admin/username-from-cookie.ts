@@ -11,6 +11,7 @@ const userNameFromCookies = (cookie: string): string | null => {
         if (typeof verify === 'object') {
             return verify?.adminName;
         }
+
         return null;
     } catch (error) {
         console.log(`Error in cookie verify => ${error}`);
