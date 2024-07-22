@@ -5,15 +5,21 @@ import ShopHome from "./components/shop-components/ShopIndex";
 import AdminAuth from "./components/admin/auth/SignIn";
 import AdminRegister from "./components/admin/auth/Register";
 import { adminRegisterAction } from './actions/admin/admin-register-action';
-import { signInAction } from "./actions/admin/sigin_action";
+import { signInAction } from "./actions/admin/sigin-action";
 import DashboardHome from "./components/admin/dashboard/MainDashBoard";
 import { adminHomeLoaderFunction } from './loaders/admin/admin-home-loader';
 import { adminAction } from "./actions/admin/dashboard-action";
+import { ErrorPage } from "./components/ErrorPage";
+import { DashBoardPage } from "./components/admin/dashboard/nav/nav-pages/DashboardPage";
+import { AddItemPage } from "./components/admin/dashboard/nav/nav-pages/AddItemPage";
+import { TaskPage } from "./components/admin/dashboard/nav/nav-pages/TaskPage";
+import { Inventory } from "./components/admin/dashboard/nav/nav-pages/inventory/Inventory";
 
 
 export const routes = createBrowserRouter([
     {
         element : <RootLayout />,
+        errorElement : <ErrorPage />,
         children :[
             {
                 path : "/sign-in",
@@ -38,23 +44,29 @@ export const routes = createBrowserRouter([
                 element : <DashboardHome />,
                 loader : adminHomeLoaderFunction,
                 action : adminAction,
+                errorElement : <ErrorPage />,
 
                 children : [
                     {
                         path : "/admin/:adminId/dashboard",
-                        element : <h2> Dashboard </h2>
+                        element : <DashBoardPage />
                     },
                     {
                         path : "/admin/:adminId/addItems",
-                        element : <h2> Add items </h2>
+                        element : <AddItemPage />
                     },
                     {
                         path : "/admin/:adminId/inventory",
-                        element : <h2> Inventory </h2>
+                        element : <Inventory />
                     },
                     {
-                        path : "/admin/:adminId/tasks",
-                        element : <h2> Tasks </h2>
+                        path : "/admin/:adminId/customers",
+                        element : <TaskPage />
+                    },
+
+                    {
+                        path : "/admin/:adminId/orders",
+                        element : <TaskPage />
                     }
                     
                 ]

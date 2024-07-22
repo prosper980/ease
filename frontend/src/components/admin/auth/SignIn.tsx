@@ -33,7 +33,7 @@ const AdminAuth = () => {
 
                 <button className='w-full rounded p-2 text-center text-white transition border-0 bg-green-500 hover:bg-green-300' disabled={load} type='submit'> Sign in </button>
 
-                <h3> {typeof actionData === "string" && actionData} </h3>
+                <span className="text-red-500 text-xs font-plus-font "> {typeof actionData === "string" && actionData} </span>
 
                 <div>
                     <Link className='text-sky-400 hover:text-sky-300 transition' to={"/admin/register"}> Register an account </Link>

@@ -3,6 +3,12 @@ import { ActionFunction } from "react-router";
 import { baseUrl } from "../../global";
 
 
+/**
+ * Dashboard sign out action function
+ * 
+ * @param param0 
+ * @returns {Promise}
+ */
 export const adminAction : ActionFunction = async ({ request }) => {
 
     try {

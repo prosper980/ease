@@ -34,7 +34,7 @@ const AdminRegister = () => {
 
                 <button className='w-full rounded p-2 text-center text-white transition border-0 bg-green-500 hover:bg-green-300' type='submit'> Register </button>
 
-                <h3> {typeof actionError === "string" && actionError} </h3>
+                <span className="text-red-500 text-xs font-plus-font"> {typeof actionError === "string" && actionError} </span>
             </Form>
         </div>
 

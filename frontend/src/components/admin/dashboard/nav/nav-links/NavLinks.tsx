@@ -10,9 +10,9 @@ type Data = {
 const NavLinks = () => {
 
     const loaderData = useLoaderData() as Data;
-    let id = 0;
+    let id = "";
     if(typeof loaderData === "object"){
-        id = loaderData?.id
+        id = loaderData?.userName
     }
 
     const isNavActiveStyle = "text-slate-50 hover:text-slate-200 font-bold transition flex space-x-1"
@@ -53,21 +53,35 @@ const NavLinks = () => {
                             className="size-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
-
+                        
                         <span> Inventory  </span> 
                     </NavLink>
                 </li>
 
                 <li>
-                    <NavLink className={( {isActive, isPending }) => isActive ? isNavActiveStyle : isPending ? isNavPendingStyle : "flex space-x-1 transition-all" } to={`/admin/${id}/tasks`}> 
+                    <NavLink className={( {isActive, isPending }) => isActive ? isNavActiveStyle : isPending ? isNavPendingStyle : "flex space-x-1 transition-all" } to={`/admin/${id}/customers`}> 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
                             strokeWidth={1.5}   stroke="currentColor" className="size-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
 
-                        <span> Tasks </span> 
+                        <span> Customers </span> 
                     </NavLink>
                 </li>
+
+
+                <li>
+                    <NavLink className={( {isActive, isPending }) => isActive ? isNavActiveStyle : isPending ? isNavPendingStyle : "flex space-x-1 transition-all" } to={`/admin/${id}/orders`}> 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
+                            strokeWidth={1.5}   stroke="currentColor" className="size-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+
+                        <span> Orders </span> 
+                    </NavLink>
+                </li>
+                
+                
             </ul>
          </div>
     )
